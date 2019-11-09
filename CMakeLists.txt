@@ -15,6 +15,12 @@ include_directories(
         "/usr/local/include/sophus/"
 )
 
+#Pangolin
+find_package(Pangolin REQUIRED)
+include_directories(${Pangolin_INCLUDE_DIRS})
+
+#CMAKE
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(evaluate_pose main.cpp)
+target_link_libraries(evaluate_pose ${Pangolin_LIBRARIES})
